@@ -21,7 +21,9 @@ fordx = bs.select_one('span.forDX')
 
 # 해당 날짜에 상영중인 영화 목록 하나씩 출력 + <strong> 태그 떼고 출력
 if (fordx):
-    for movie in infolist:
-        print(movie.select_one('a > strong').text.strip())
+    fordx = fordx.find_parent('div', class_='col-times')
+    print(fordx.select_one('div.info-movie > a > strong').text.strip())
+
 else:
     print('4dx 예매가 풀리지 않았음')
+
