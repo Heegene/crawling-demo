@@ -11,7 +11,9 @@ bs = BeautifulSoup(response.text, 'html.parser')
 #print(bs.select('body > div div.info-movie > a > strong '))
 #print(bs.select('div.info-movie'))
 
+# div 내 info-movie select
 infolist = bs.select('div.info-movie')
 
+# 해당 날짜에 상영중인 영화 목록 하나씩 출력 + <strong> 태그 떼고 출력
 for movie in infolist:
     print(movie.select_one('a > strong').text.strip())
